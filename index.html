@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      partytown = {
+        forward: ["dataLayer.push"],
+      };
+    </script>
+    <script type="module">
+      import { partytownSnippet } from "@builder.io/partytown/integration";
+      const snippetText = partytownSnippet();
+      const el = document.createElement("script");
+      el.innerText = snippetText;
+      document.body.appendChild(el);
+    </script>
+    <script type="text/partytown">
+      console.log("inicio do script");
+      document.cookie =
+        "cookieName=felipe badaro; expires=expiryDate; path=pathName";
+      let i = 1999999999;
+      while (i--) {
+        // faz nada d+
+      }
+      console.log("fim do loop");
+      const cookies = document.cookie.split(";");
+      for (let i = 0; i < cookies.length; i++) {
+        const [name, value] = cookies[i].trim().split("=");
+        if (name === "cookieName") {
+          console.log(value);
+        }
+      }
+      document.body.appendChild(document.createTextNode("heavy script simulation"));
+    </script>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
